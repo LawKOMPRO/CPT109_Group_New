@@ -24,6 +24,7 @@ extern Planeta catalogue[MAX_PLANETS];
 extern int planetCount;
 
 // Function declarations
+void saveCatalogueToFile();
 void addPlanet();
 void editPlanet();
 void removePlanet();
