@@ -17,6 +17,18 @@
 Planeta catalogue[MAX_PLANETS];
 int planetCount = 0;
 
+//void saveCatalogueToFile(char * str);
+
+void saveCatalogueToFile(const char* filename) {
+    FILE* file = fopen(filename, "wb"); // 使用二进制写模式
+    if (file == NULL) {
+        perror("Error opening file");
+        return;
+    }
+    fwrite(catalogue, sizeof(Planeta), planetCount, file); // 写入整个目录
+    fclose(file);
+}
+
 void addPlanet() {
     if (planetCount >= MAX_PLANETS) {
         printf("Catalogue is full. Cannot add more planets.\n");
@@ -37,6 +49,9 @@ void addPlanet() {
 
     catalogue[planetCount++] = newPlanet;
     printf("Planet added successfully.\n");
+
+    // 保存到文件
+    saveCatalogueToFile("planets.dat");
 }
 
 void editPlanet() {
@@ -88,11 +103,15 @@ void editPlanet() {
             }
 
             printf("Planet edited successfully.\n");
+
+            // 保存到文件
+            saveCatalogueToFile("planets.dat");
             return;
         }
     }
     printf("Planet not found.\n");
 }
+
 
 
 void removePlanet() {
@@ -107,6 +126,9 @@ void removePlanet() {
             }
             planetCount--;
             printf("Planet removed successfully.\n");
+
+            // 保存到文件
+            saveCatalogueToFile("planets.dat");
             return;
         }
     }
@@ -122,7 +144,12 @@ void displayCatalogue() {
             printf("  - %s\n", catalogue[i].relevantData[j]);
         }
     }
+    // 保存到文件
+    saveCatalogueToFile("planets.dat");
 }
+
+// 保存行星目录到文件
+
 
 void planet_manager() {
     char choice;
@@ -158,3 +185,4 @@ void planet_manager() {
     } while (choice != 5);
     return;
 }
+
