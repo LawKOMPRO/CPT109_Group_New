@@ -67,4 +67,3 @@ void viewContributions() {
     }
 }
 
-void user_manager();
