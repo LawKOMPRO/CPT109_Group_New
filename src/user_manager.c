@@ -2,7 +2,7 @@
 #include <stdbool.h>
 
 
-void user_manager () {
+void manageCustomerAccount () {
     char choice;
     bool flag = true;
     while (1) {
