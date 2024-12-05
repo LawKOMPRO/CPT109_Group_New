@@ -200,3 +200,4 @@ void manageCustomerAccounts()
     printf("\nYou have entered the Manage Customer Accounts module.\n");
     // 这里可以进一步实现客户管理的功能，如注册新账户、编辑账户信息等
 }
+user_manager();
