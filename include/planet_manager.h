@@ -10,17 +10,21 @@
 #define RELEVANT_DATA_LENGTH 100
 #define RELEVANT_DATA_COUNT 5
 
-// Struct definition
-typedef struct {
-    char name[NAME_LENGTH];
-    char type[TYPE_LENGTH];
-    char size[SIZE_LENGTH];
-    double distanceFromStar; // In astronomical units (AU)
-    char relevantData[RELEVANT_DATA_COUNT][RELEVANT_DATA_LENGTH];
-} Planeta;
+#include "searchplanet_manager.h"
+
+// // Struct definition
+// typedef struct {
+//     char name[NAME_LENGTH];
+//     char type[TYPE_LENGTH];
+//     double size;
+//     double distanceFromStar;
+//     int isCataloged;
+//     int isDiscovered;
+//     int isObserved;
+// } Planet;
 
 // Global variables
-extern Planeta catalogue[MAX_PLANETS];
+extern Planet catalogue[MAX_PLANETS];
 extern int planetCount;
 
 // Function declarations
