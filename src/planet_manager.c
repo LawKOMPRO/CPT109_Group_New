@@ -42,21 +42,34 @@ void CountCategue() {
 }
 
 // 从文件中读取行星目录
-void loadCatalogueFromFile(){
-    CountPlanet();
+// void loadCatalogueFromFile(){
+//     CountPlanet();
+//     FILE *file = fopen("planets.dat", "rb");
+//     if (file == NULL)
+//     {
+//         printf("Error opening file for reading.\n");
+//         return;
+//     }
+//     Planet planet;
+//     while (fread(&planet, sizeof(Planet), 1, file) == 1) {
+//         for (int i = planetnumber; i < currentplanet - 1; i++)catalogue[i]= planet;
+//     }
+//     fclose(file);
+// }
+
+void loadCatalogueFromFile() {
     FILE *file = fopen("planets.dat", "rb");
-    if (file == NULL)
-    {
+    if (file == NULL) {
         printf("Error opening file for reading.\n");
         return;
     }
     Planet planet;
+    planetCount = 0; // 重置planetCount
     while (fread(&planet, sizeof(Planet), 1, file) == 1) {
-        for (int i = 0; i < planetCount; i++)catalogue[i]= planet;
+        catalogue[planetCount++] = planet;
     }
     fclose(file);
 }
-
 // // 保存行星目录到文件
 // void savePlanetToFile(Planet planet) {
 //     CountPlanet();
@@ -69,21 +82,32 @@ void loadCatalogueFromFile(){
 //     fclose(file);
 // }
 
+// void saveCatalogueToFile() {
+//     CountPlanet();
+//     CountCategue();
+//     FILE *file = fopen("planets.dat", "rb");
+//     if (file == NULL) {
+//         perror("Error opening file");
+//         return;
+//     }
+//     for (int i = planetCount-1; i < currentPlanet; i++) {
+//         Planet planet = catalogue[i];
+//         fwrite(&planet, sizeof(Planet), 1, file);
+//     }
+//     fclose(file);
+// }
+
 void saveCatalogueToFile() {
-    CountPlanet();
-    CountCategue();
-    FILE *file = fopen("planets.dat", "rb");
+    FILE *file = fopen("planets.dat", "wb"); // 使用 "wb" 以覆盖写入
     if (file == NULL) {
         perror("Error opening file");
         return;
     }
-    for (int i = planetCount-1; i < currentPlanet; i++) {
-        Planet planet = catalogue[i];
-        fwrite(&planet, sizeof(Planet), 1, file);
+    for (int i = 0; i < planetCount; i++) {
+        fwrite(&catalogue[i], sizeof(Planet), 1, file);
     }
     fclose(file);
 }
-
 
 void addPlanet() {
     // loadCatalogueFromFile(); // 重新读取目录
@@ -240,5 +264,7 @@ void planet_manager() {
         }
     } while (choice != '5');
 }
+
+
 
 
