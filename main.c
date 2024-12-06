@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,6 +8,33 @@
 #include "searchplanet_manager.h"
 #include "statics_manager.h"
 #include "user_manager.h"
+
+// 辅助函数：获取用户输入的正数
+double getPositiveDouble(const char *prompt) {
+    double value;
+    char buffer[100];
+    char extra;
+
+    while (1) {
+        printf("%s", prompt);
+        if (!fgets(buffer, sizeof(buffer), stdin)) {
+            // 读取失败（如遇到EOF）
+            printf("输入错误，请重试。\n");
+            continue;
+        }
+
+        // 检查是否有额外的非空白字符
+        if (sscanf(buffer, "%lf %c", &value, &extra) == 1) {
+            if (value > 0) {
+                return value;
+            } else {
+                printf("无效输入。请输入一个大于0的数字。\n");
+            }
+        } else {
+            printf("无效输入。请输入一个有效的数字。\n");
+        }
+    }
+}
 
 // 函数声明
 void managePlanetInfo();
@@ -54,7 +82,12 @@ int main()
     {
         displayMenu();  // 显示主菜单
         printf("Enter your choice (1-5, 0 to exit): ");
-        scanf("%d", &choice);
+        if (scanf("%d", &choice) != 1) {
+            // 处理非整数输入
+            while (getchar() != '\n');  // 清除输入缓冲区
+            printf("Invalid input. Please enter a number between 0 and 5.\n");
+            continue;
+        }
         getchar();  // 清理输入缓冲区，防止残留字符影响下一次输入
 
         switch (choice)
@@ -132,7 +165,12 @@ void searchAndInspectPlanets()
     printf("3. Search by Size\n");
     printf("4. Search by Distance from Sun\n");
     printf("Enter your choice (1-4): ");
-    scanf("%d", &choice);
+    if (scanf("%d", &choice) != 1) {
+        // 处理非整数输入
+        while (getchar() != '\n');  // 清除输入缓冲区
+        printf("Invalid input. Please enter a number between 1 and 4.\n");
+        return;
+    }
     getchar();  // 清理输入缓冲区，防止残留字符影响下一次输入
 
     switch (choice)
@@ -142,8 +180,12 @@ void searchAndInspectPlanets()
         // 根据行星名称搜索
         char searchName[50];
         printf("Enter the name of the planet to search: ");
-        scanf("%s", searchName);
-        getchar();
+        if (scanf("%49s", searchName) != 1) {
+            while (getchar() != '\n');  // 清除输入缓冲区
+            printf("Invalid input.\n");
+            return;
+        }
+        getchar();  // 清理输入缓冲区
         searchPlanetByName("planets.dat", searchName);
         break;
     }
@@ -152,33 +194,31 @@ void searchAndInspectPlanets()
         // 根据行星类型搜索
         char searchType[50];
         printf("Enter the type of the planet to search (e.g., Terrestrial, Gas Giant, Ice Giant): ");
-        scanf("%s", searchType);
-        getchar();
+        if (fgets(searchType, sizeof(searchType), stdin) == NULL) {
+            printf("Invalid input.\n");
+            return;
+        }
+        // 去除换行符
+        searchType[strcspn(searchType, "\n")] = '\0';
         searchPlanetType("planets.dat", searchType);
         break;
     }
     case 3:
     {
-        // 根据行星大小搜索
-        double searchSize;
-        printf("Enter the closest size of the planet to search (in km): ");
-        scanf("%lf", &searchSize);
-        getchar();
+        // 按大小搜索行星
+        double searchSize = getPositiveDouble("Enter the closest size of the planet to search (in km): ");
         searchPlanetBySize("planets.dat", searchSize);
         break;
     }
     case 4:
     {
-        // 根据行星距离搜索
-        double searchDistance;
-        printf("Enter the minimum distance from the sun to search (in AU): ");
-        scanf("%lf", &searchDistance);
-        getchar();
+        // 按行星距离搜索
+        double searchDistance = getPositiveDouble("Enter the minimum distance from the sun to search (in AU): ");
         searchPlanetByDistance("planets.dat", searchDistance);
         break;
     }
     default:
-        printf("Invalid choice. Please enter a number between 1 and 4.\n");
+        printf("Invalid choice.\n");
     }
 
     // 显示所有行星信息
@@ -186,11 +226,15 @@ void searchAndInspectPlanets()
     int display_choice;
     printf("1. Display all information\n");
     printf("2. Do not display all information\n");
-    scanf("%d", &display_choice);
-    getchar();
-    if (display_choice == 1)
-    {
-        displayAllPlanets("planets.dat");
+    if (scanf("%d", &display_choice) != 1) {
+        while (getchar() != '\n');  // 清除输入缓冲区
+        printf("Invalid input. Skipping display.\n");
+    } else {
+        getchar();
+        if (display_choice == 1)
+        {
+            displayAllPlanets("planets.dat");
+        }
     }
 }
 
@@ -201,4 +245,3 @@ void manageCustomerAccounts()
     // 这里可以进一步实现客户管理的功能，如注册新账户、编辑账户信息等
     user_manager();
 }
-
