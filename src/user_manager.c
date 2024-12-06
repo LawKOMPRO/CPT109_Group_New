@@ -73,7 +73,7 @@ void user_manager () {
     bool flag = true;
     loadCustomers();
 
-    while (1) {
+    while (flag) {
         printf("User Management\n");
         printf("1. Add new user\n");
         printf("2. Edit detailed user information\n");
@@ -96,7 +96,8 @@ void user_manager () {
             break;
             case '4':
                 saveCustomers(); // 退出前保存数据
-            exit(0);
+            flag=false;
+            break;
             default:
                 printf("Invalid selection.\n\n");
         }
