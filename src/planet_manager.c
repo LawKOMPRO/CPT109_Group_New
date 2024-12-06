@@ -2,8 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "planet_manager.h"
-
-
+#include "searchplanet_manager.h"
 
 #define MAX_PLANETS 100
 #define NAME_LENGTH 50
@@ -12,49 +11,110 @@
 #define RELEVANT_DATA_LENGTH 100
 #define RELEVANT_DATA_COUNT 5
 
-
-
-Planeta catalogue[MAX_PLANETS];
+Planet catalogue[MAX_PLANETS]={};
 int planetCount = 0;
+int currentPlanet = 0;
 
 //void saveCatalogueToFile(char * str);
+void CountPlanet() {
+    FILE *file = fopen("planets.dat", "rb");
+    if (file == NULL)
+    {
+        printf("Error opening file for reading.\n");
+        return;
+    }
+    Planet planet;
+    planetCount = 0;
+    while (fread(&planet, sizeof(Planet), 1, file) == 1)
+    {
+        planetCount++;
+    }
+    fclose(file);
+}
 
-void saveCatalogueToFile(const char* filename) {
-    FILE* file = fopen(filename, "wb"); // 使用二进制写模式
+void CountCategue() {
+    currentPlanet = 0;
+    for (int i = 0; i < MAX_PLANETS; i++) {
+        if (catalogue[i].type == 0) {
+            currentPlanet ++;
+        }
+    }
+}
+
+// 从文件中读取行星目录
+void loadCatalogueFromFile(){
+    CountPlanet();
+    FILE *file = fopen("planets.dat", "rb");
+    if (file == NULL)
+    {
+        printf("Error opening file for reading.\n");
+        return;
+    }
+    Planet planet;
+    while (fread(&planet, sizeof(Planet), 1, file) == 1) {
+        for (int i = 0; i < planetCount; i++)catalogue[i]= planet;
+    }
+    fclose(file);
+}
+
+// // 保存行星目录到文件
+// void savePlanetToFile(Planet planet) {
+//     CountPlanet();
+//     FILE* file = fopen("planets.dat", "ab");
+//     if (file == NULL) {
+//         perror("Error opening file");
+//         return;
+//     }
+//     fwrite(&planet, sizeof(Planet), 1, file);
+//     fclose(file);
+// }
+
+void saveCatalogueToFile() {
+    CountPlanet();
+    CountCategue();
+    FILE *file = fopen("planets.dat", "rb");
     if (file == NULL) {
         perror("Error opening file");
         return;
     }
-    fwrite(catalogue, sizeof(Planeta), planetCount, file); // 写入整个目录
+    for (int i = planetCount-1; i < currentPlanet; i++) {
+        Planet planet = catalogue[i];
+        fwrite(&planet, sizeof(Planet), 1, file);
+    }
     fclose(file);
 }
 
+
 void addPlanet() {
+    // loadCatalogueFromFile(); // 重新读取目录
     if (planetCount >= MAX_PLANETS) {
         printf("Catalogue is full. Cannot add more planets.\n");
         return;
     }
 
-    Planeta newPlanet;
+    Planet newPlanet;
     printf("Enter planet name: ");
     scanf("%49s", newPlanet.name);
     printf("Enter planet type: ");
-    scanf("%19s", newPlanet.type);
+    scanf("%49s", newPlanet.type);
     printf("Enter planet size: ");
-    scanf("%19s", newPlanet.size);
+    scanf("%lf", &newPlanet.size);
     printf("Enter planet's distance from star in astronomical units (AU): ");
     scanf("%lf", &newPlanet.distanceFromStar);
-    printf("Enter relevant data points:");
-    scanf("%19s", newPlanet.relevantData);
+    newPlanet.isCataloged = 1; // 假设添加的行星都是已编入目录的
+    newPlanet.isDiscovered = 1; // 假设添加的行星都是已发现的
+    newPlanet.isObserved = 1; // 假设添加的行星都是被观测到的
 
     catalogue[planetCount++] = newPlanet;
     printf("Planet added successfully.\n");
 
-    // 保存到文件
-    saveCatalogueToFile("planets.dat");
+    // // 保存到文件
+    // savePlanetToFile(newPlanet);
+    saveCatalogueToFile();
 }
 
 void editPlanet() {
+    loadCatalogueFromFile(); // 重新读取目录
     char planetName[NAME_LENGTH];
     printf("Enter the name of the planet to edit: ");
     scanf("%49s", planetName);
@@ -79,42 +139,36 @@ void editPlanet() {
             }
 
             printf("Enter new size: ");
-            char newSize[SIZE_LENGTH];
-            fgets(newSize, SIZE_LENGTH, stdin);
-            if (newSize[0] != '\n') {
-                newSize[strcspn(newSize, "\n")] = '\0'; // 移除换行符
-                strcpy(catalogue[i].size, newSize);
-            }
+            double newSize;
+            scanf("%lf", &newSize);
+            catalogue[i].size = newSize;
 
             printf("Enter new distance from star in AU: ");
-            char distanceInput[20];
-            fgets(distanceInput, 20, stdin);
-            if (distanceInput[0] != '\n') {
-                double newDistance = atof(distanceInput);
-                if (newDistance != 0) catalogue[i].distanceFromStar = newDistance;
-            }
+            double newDistance;
+            scanf("%lf", &newDistance);
+            catalogue[i].distanceFromStar = newDistance;
 
-            printf("Enter new relevant data point: ");
-            char newData[RELEVANT_DATA_LENGTH];
-            fgets(newData, RELEVANT_DATA_LENGTH, stdin);
-            if (newData[0] != '\n') {
-                newData[strcspn(newData, "\n")] = '\0'; // 移除换行符
-                strcpy(catalogue[i].relevantData[0], newData); // 存储在第一个位置
-            }
+            printf("Enter new isCataloged (1 for yes, 0 for no): ");
+            scanf("%d", &catalogue[i].isCataloged);
+
+            printf("Enter new isDiscovered (1 for yes, 0 for no): ");
+            scanf("%d", &catalogue[i].isDiscovered);
+
+            printf("Enter new isObserved (1 for yes, 0 for no): ");
+            scanf("%d", &catalogue[i].isObserved);
 
             printf("Planet edited successfully.\n");
 
             // 保存到文件
-            saveCatalogueToFile("planets.dat");
+            saveCatalogueToFile();
             return;
         }
     }
     printf("Planet not found.\n");
 }
 
-
-
 void removePlanet() {
+    loadCatalogueFromFile("planets.dat"); // 重新读取目录
     char planetName[NAME_LENGTH];
     printf("Enter the name of the planet to remove: ");
     scanf("%49s", planetName);
@@ -128,30 +182,27 @@ void removePlanet() {
             printf("Planet removed successfully.\n");
 
             // 保存到文件
-            saveCatalogueToFile("planets.dat");
+            saveCatalogueToFile();
             return;
         }
     }
     printf("Planet not found.\n");
 }
 
-void displayCatalogue() {
+void displayCatalogue(const char *filename) {
+    loadCatalogueFromFile(filename); // 重新读取目录
     printf("Planet Catalogue:\n");
     for (int i = 0; i < planetCount; i++) {
-        printf("Name: %s, Type: %s, Size: %s, Distance from star: %.2f AU, Relevant Data:\n",
-               catalogue[i].name, catalogue[i].type, catalogue[i].size, catalogue[i].distanceFromStar);
-        for (int j = 0; j < RELEVANT_DATA_COUNT; j++) {
-            printf("  - %s\n", catalogue[i].relevantData[j]);
+        if (catalogue[i].size!=0.0){
+            printf("Name: %s\n Type: %s\n Size: %.2f\n Distance from star: %.2f AU\n IsCataloged: %d\n IsDiscovered: %d\n IsObserved: %d\n\n",
+                   catalogue[i].name, catalogue[i].type, catalogue[i].size, catalogue[i].distanceFromStar, catalogue[i].isCataloged, catalogue[i].isDiscovered, catalogue[i].isObserved);
         }
     }
-    // 保存到文件
-    saveCatalogueToFile("planets.dat");
 }
 
 // 保存行星目录到文件
-
-
 void planet_manager() {
+    loadCatalogueFromFile("planets.dat");
     char choice;
     do {
         printf("\nManage Planet Information\n");
@@ -166,23 +217,28 @@ void planet_manager() {
         switch (choice) {
             case '1':
                 addPlanet();
-                break;
+            break;
             case '2':
                 editPlanet();
-                break;
+            break;
             case '3':
                 removePlanet();
-                break;
+            break;
             case '4':
-                displayCatalogue();
-                break;
+                displayCatalogue("planets.dat");
+            break;
             case '5':
                 printf("Exiting program.\n");
-                break;
+            break;
+            case '0':
+                CountPlanet();
+            CountCategue();
+                printf("%d planetCount:\ncurrentOlanet:%d", planetCount,currentPlanet);
+
             default:
                 printf("Invalid choice. Please try again.\n");
         }
-    } while (choice != 5);
-    return;
+    } while (choice != '5');
 }
+
 
