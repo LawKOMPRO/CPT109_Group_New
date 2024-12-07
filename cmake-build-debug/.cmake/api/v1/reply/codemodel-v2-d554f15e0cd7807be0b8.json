@@ -51,49 +51,49 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "CPT109_CW::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-CPT109_CW-Debug-a56ad36ab7d499fa61ad.json",
+					"jsonFile" : "target-CPT109_CW-Debug-890f631386eb4b4e2900.json",
 					"name" : "CPT109_CW",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "cpt109_lib::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-cpt109_lib-Debug-1c00e015eefd2b840e96.json",
+					"jsonFile" : "target-cpt109_lib-Debug-9b4e66f1db32c5b5fc39.json",
 					"name" : "cpt109_lib",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_planet_manager::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_planet_manager-Debug-54991ab641d5f2ee6a55.json",
+					"jsonFile" : "target-test_planet_manager-Debug-19d465783bb5ca12db27.json",
 					"name" : "test_planet_manager",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_researcher_manager::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_researcher_manager-Debug-9346d29b2b084105c90b.json",
+					"jsonFile" : "target-test_researcher_manager-Debug-681a57079c747fade263.json",
 					"name" : "test_researcher_manager",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_search_manager::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_search_manager-Debug-c642a076d029b0877dcc.json",
+					"jsonFile" : "target-test_search_manager-Debug-c81bfebeeb4ad7ab059b.json",
 					"name" : "test_search_manager",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_statics_manager::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_statics_manager-Debug-71ee44b993d1dbf8b0c2.json",
+					"jsonFile" : "target-test_statics_manager-Debug-e4a0404619c631b7c2de.json",
 					"name" : "test_statics_manager",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_user_manager::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_user_manager-Debug-4a2282610e1f1c66675e.json",
+					"jsonFile" : "target-test_user_manager-Debug-baae448cf8187755c197.json",
 					"name" : "test_user_manager",
 					"projectIndex" : 0
 				}
@@ -103,8 +103,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/FILES/\u5927\u5b66/\u5927\u4e8c\u4e0a/CPT109/\u5c0f\u7ec4\u4f5c\u4e1a/CPT109_Group_CW/cmake-build-debug",
-		"source" : "D:/FILES/\u5927\u5b66/\u5927\u4e8c\u4e0a/CPT109/\u5c0f\u7ec4\u4f5c\u4e1a/CPT109_Group_CW"
+		"build" : "F:/Github/CPT109_Group_New/cmake-build-debug",
+		"source" : "F:/Github/CPT109_Group_New"
 	},
 	"version" : 
 	{

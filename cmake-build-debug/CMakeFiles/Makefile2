@@ -44,19 +44,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "D:\Applications\CLion\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe"
+CMAKE_COMMAND = "E:\Clion\CLion 2024.2.3\bin\cmake\win\x64\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "D:\Applications\CLion\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe" -E rm -f
+RM = "E:\Clion\CLion 2024.2.3\bin\cmake\win\x64\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW
+CMAKE_SOURCE_DIR = F:\Github\CPT109_Group_New
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug
+CMAKE_BINARY_DIR = F:\Github\CPT109_Group_New\cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -92,14 +92,14 @@ clean: CMakeFiles/test_user_manager.dir/clean
 CMakeFiles/cpt109_lib.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\cpt109_lib.dir\build.make CMakeFiles/cpt109_lib.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\cpt109_lib.dir\build.make CMakeFiles/cpt109_lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles --progress-num=3,4,5,6,7,8 "Built target cpt109_lib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles --progress-num=3,4,5,6,7,8 "Built target cpt109_lib"
 .PHONY : CMakeFiles/cpt109_lib.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/cpt109_lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/cpt109_lib.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/cpt109_lib.dir/rule
 
 # Convenience name for target.
@@ -118,14 +118,14 @@ CMakeFiles/cpt109_lib.dir/clean:
 CMakeFiles/CPT109_CW.dir/all: CMakeFiles/cpt109_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPT109_CW.dir\build.make CMakeFiles/CPT109_CW.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\CPT109_CW.dir\build.make CMakeFiles/CPT109_CW.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target CPT109_CW"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target CPT109_CW"
 .PHONY : CMakeFiles/CPT109_CW.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/CPT109_CW.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/CPT109_CW.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/CPT109_CW.dir/rule
 
 # Convenience name for target.
@@ -144,14 +144,14 @@ CMakeFiles/CPT109_CW.dir/clean:
 CMakeFiles/test_planet_manager.dir/all: CMakeFiles/cpt109_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_planet_manager.dir\build.make CMakeFiles/test_planet_manager.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_planet_manager.dir\build.make CMakeFiles/test_planet_manager.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles --progress-num=9,10 "Built target test_planet_manager"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles --progress-num=9,10 "Built target test_planet_manager"
 .PHONY : CMakeFiles/test_planet_manager.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_planet_manager.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/test_planet_manager.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/test_planet_manager.dir/rule
 
 # Convenience name for target.
@@ -170,14 +170,14 @@ CMakeFiles/test_planet_manager.dir/clean:
 CMakeFiles/test_researcher_manager.dir/all: CMakeFiles/cpt109_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_researcher_manager.dir\build.make CMakeFiles/test_researcher_manager.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_researcher_manager.dir\build.make CMakeFiles/test_researcher_manager.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles --progress-num=11,12 "Built target test_researcher_manager"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles --progress-num=11,12 "Built target test_researcher_manager"
 .PHONY : CMakeFiles/test_researcher_manager.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_researcher_manager.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/test_researcher_manager.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/test_researcher_manager.dir/rule
 
 # Convenience name for target.
@@ -196,14 +196,14 @@ CMakeFiles/test_researcher_manager.dir/clean:
 CMakeFiles/test_search_manager.dir/all: CMakeFiles/cpt109_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_search_manager.dir\build.make CMakeFiles/test_search_manager.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_search_manager.dir\build.make CMakeFiles/test_search_manager.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles --progress-num=13,14 "Built target test_search_manager"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles --progress-num=13,14 "Built target test_search_manager"
 .PHONY : CMakeFiles/test_search_manager.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_search_manager.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/test_search_manager.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/test_search_manager.dir/rule
 
 # Convenience name for target.
@@ -222,14 +222,14 @@ CMakeFiles/test_search_manager.dir/clean:
 CMakeFiles/test_statics_manager.dir/all: CMakeFiles/cpt109_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_statics_manager.dir\build.make CMakeFiles/test_statics_manager.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_statics_manager.dir\build.make CMakeFiles/test_statics_manager.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles --progress-num=15,16 "Built target test_statics_manager"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles --progress-num=15,16 "Built target test_statics_manager"
 .PHONY : CMakeFiles/test_statics_manager.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_statics_manager.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/test_statics_manager.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/test_statics_manager.dir/rule
 
 # Convenience name for target.
@@ -248,14 +248,14 @@ CMakeFiles/test_statics_manager.dir/clean:
 CMakeFiles/test_user_manager.dir/all: CMakeFiles/cpt109_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_user_manager.dir\build.make CMakeFiles/test_user_manager.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_user_manager.dir\build.make CMakeFiles/test_user_manager.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles --progress-num=17,18 "Built target test_user_manager"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles --progress-num=17,18 "Built target test_user_manager"
 .PHONY : CMakeFiles/test_user_manager.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_user_manager.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/test_user_manager.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\FILES\大学\大二上\CPT109\小组作业\CPT109_Group_CW\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Github\CPT109_Group_New\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/test_user_manager.dir/rule
 
 # Convenience name for target.

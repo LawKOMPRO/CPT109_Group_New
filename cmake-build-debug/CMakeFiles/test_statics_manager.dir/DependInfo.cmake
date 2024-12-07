@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "D:/FILES/大学/大二上/CPT109/小组作业/CPT109_Group_CW/tests/test_statics_manager.c" "CMakeFiles/test_statics_manager.dir/tests/test_statics_manager.c.obj" "gcc" "CMakeFiles/test_statics_manager.dir/tests/test_statics_manager.c.obj.d"
+  "F:/Github/CPT109_Group_New/tests/test_statics_manager.c" "CMakeFiles/test_statics_manager.dir/tests/test_statics_manager.c.obj" "gcc" "CMakeFiles/test_statics_manager.dir/tests/test_statics_manager.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
